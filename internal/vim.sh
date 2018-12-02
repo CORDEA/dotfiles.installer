@@ -26,4 +26,4 @@ rm /tmp/installer.sh
 
 cd $1
 git clone https://github.com/CORDEA/dotfiles.vim
-find "$(pwd)/dotfiles.vim/src/" -d 1 | xargs -I{} ln -sf {} "$HOME/"
+find "$(pwd)/dotfiles.vim/src" -d 1 | xargs -I{} ln -sf {} "$HOME/"
