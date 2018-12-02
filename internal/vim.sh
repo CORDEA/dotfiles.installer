@@ -21,9 +21,9 @@
 brew install vim
 
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
-sh ./tmp/installer.sh "$HOME/.vim/dein"
+sh /tmp/installer.sh "$HOME/.vim/dein"
 rm /tmp/installer.sh
 
 cd $1
 git clone https://github.com/CORDEA/dotfiles.vim
-find "$(pwd)/src/" -d 1 | xargs -I{} ln -sf {} "$HOME/"
+find "$(pwd)/dotfiles.vim/src/" -d 1 | xargs -I{} ln -sf {} "$HOME/"
