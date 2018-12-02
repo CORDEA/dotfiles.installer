@@ -18,8 +18,6 @@
 # Author: Yoshihiro Tanaka <contact@cordea.jp>
 # date  : 2018-12-02
 
-. ./constants.sh
-
-cd $base_dir
+cd $1
 git clone https://github.com/deadpixi/mtm.git
-cd mtm && make
+cd mtm && make CURSESLIB=curses
