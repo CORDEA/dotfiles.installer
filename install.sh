@@ -26,17 +26,13 @@ base_dir="$HOME/Documents/git-cloning/"
 installer_dir="/tmp/dotfiles.installer"
 
 git clone https://github.com/CORDEA/dotfiles.installer.git $installer_dir
-for file in $installer_dir/internal/*.sh; do
-    sh -c "$file $base_dir"
-done
+find "$installer_dir/internal" -type f -exec sh {} $base_dir \;
 rm -rf $installer_dir
 
 cd $base_dir
 git clone https://github.com/CORDEA/dotfiles.git
-cd dotfiles
-find "$(pwd)/src/" -type f | xargs -I{} ln -sf {} "$HOME/"
+find "$(pwd)/dotfiles/src" -type f -exec ln -sf {} "$HOME/" \;
 
 cd $base_dir
 git clone git@github.com:CORDEA/dotfiles.internal.git
-cd dotfiles.internal
-find "$(pwd)/src/" -d 1 | xargs -I{} ln -sf {} "$HOME/"
+find "$(pwd)/dotfiles.internal/src" -d 1 -exec ln -sf {} "$HOME/" \;
